@@ -1,4 +1,5 @@
 import re
+
 import vk_api
 
 
@@ -28,7 +29,7 @@ class VKGrabber:
         for group in groups:
             response = self.__vk.wall.get(domain=group, count=100, filter='all')
             current_max_id = cur.execute('''SELECT MAX(post_ID) FROM POSTS WHERE group_domain = ?;''', (group, )).fetchone()[0]
-            if current_max_id == None:
+            if not current_max_id:
                 current_max_id = -1
             for post in response['items']:
                 if post['id'] > current_max_id:

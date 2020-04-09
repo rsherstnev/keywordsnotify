@@ -7,8 +7,8 @@ verify_ssl = true
 
 [packages]
 vk-api = "*"
-requests = {extras = ["socks"],version = "*"}
 pytelegrambotapi = "*"
+pysocks = "*"
 
 [requires]
-python_version = "3.7"
+python_version = "3.8"
